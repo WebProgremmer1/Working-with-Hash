@@ -7,4 +7,4 @@ But for now, I will retrict the number of hushs to 10541. To the most recent one
 
 One of the functionalities that we can compare two images and make assumption if images was changed or not similar, we will know that when we will compare hash index. If hash index is not match, so the images are different.
 Also, one of the concerns was that if we resize or change name in the picture, the picture will be considered to be different. When basically it stays the same. 
-Because of this, I implement this by using  ## ph = imagehash.phash(img) not by using for chunk in  ## iter(lambda: f.read(8192), b""): 
+Because of this, I implement this by using  ** ph = imagehash.phash(img)** not by using for chunk in  **iter(lambda: f.read(8192), b""): **
