@@ -1,0 +1,26 @@
+from PIL import Image 
+import imagehash
+
+
+with open("hash_data.txt", "r") as file:
+    content = file.read()
+
+img = Image.open("photo.png")
+
+ph = imagehash.phash(img)   # perceptual hash
+ph_str = str(ph)  
+print("pHash:", ph)
+
+# compare similarity (smaller = more similar)
+img2 = Image.open("photo 2.png")
+print("pHash distance:", ph - imagehash.phash(img2))
+
+hashmap_danger = {}
+# user = input('Which hash do you want to check?: ')
+if ph_str in content:
+    print('This hash in reastr of danger files')
+    trust = input('Make an evaluation for danger of this file(0 - 100 %):  ')   
+    hashmap_danger[ph_str] = trust 
+    print(hashmap_danger)
+else:
+    print('This file is good')
